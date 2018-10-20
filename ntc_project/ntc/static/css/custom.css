@@ -2,26 +2,78 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 /***Nav Bar ****/
-#menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
+
 #menu li {
   display: inline-block;
+  margin-left:-35px;
 }
-#menu a {
+#menu a.special_circle {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   border: 1px #a2a2a2 solid;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 16px;
-  padding-bottom: auto;
-  padding-top:auto;
+  padding-top: 30px;
   text-align: center;
-  line-height: 60px;
-  margin: 5%;
+  line-height: 0px;
+
+}
+li a {
+  font-size: 17px;
+}
+
+/*market */
+
+
+/* Container holding the image and the text */
+.container_custom {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.top_left_center{
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-40%, -40%);
 }
