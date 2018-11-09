@@ -22,6 +22,9 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', include('market.urls')),
+    path('cart/', include('cart.urls')),
+    path('mynotes/mynotes/mynotes/', include('mynotes.urls')),
+    #path('account/', include('account.urls')),
 ]
 
 

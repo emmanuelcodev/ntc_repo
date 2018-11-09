@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{%block content%}
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <h1 class="text-center">Notes Title</h1>
+            <div class="center_picture" style="overflow: scroll;">
+                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
+                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
+                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
+                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
+            </div>
+            <br>
+            <br>
+            <p class="text-center">Rate your purchase.</p>
+            <div class="center_stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <form action="/action_page.php" class="review_form">
+                <p class="mt-2">Review: </p>
+                <textarea class="text_size" style="height: 100px; width: 500px;" type="text" name="review"></textarea><br><br>
+                <input type="submit" style="width: 500px; margin-bottom: 20px" value="Submit">
+            </form>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+{%endblock%}

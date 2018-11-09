@@ -16,6 +16,9 @@
         {%if note_preview%}
         <link rel="stylesheet" href="{%static 'css/note_preview.css'%}">
         {%endif%}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/notes.css' %}">
     <title></title>
   </head>
   <body>
@@ -24,6 +27,7 @@
     {%block content%}
 
     {%endblock%}
+    {%include 'footer.html'%}
     <script src="{% static 'js/jquery-3.3.1.slim.min.js'%}" ></script>
     <script src="{% static 'js/popper.min.js'%}" ></script>
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
