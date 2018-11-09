@@ -1,0 +1,44 @@
+.page_title{
+    font-size: 3em;
+}
+
+.title{
+    font-size: 1em;
+    font-weight: bold;
+}
+.cardTest{
+  display: inline-block;
+}
+.center_picture{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 20px;
+    height: 700px;
+    width: 700px;
+}
+
+.center_stars{
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.checked {
+    color: orange;
+}
+
+.textbox_size{
+    width: 300px;
+    height: 100px;
+}
+
+.review_form{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 31%;
+
+}
