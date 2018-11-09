@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'market.apps.MarketConfig',
+    'cart.apps.CartConfig',
+    'mynotes.apps.MynotesConfig',
+    #'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
