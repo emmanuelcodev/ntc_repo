@@ -25,175 +25,147 @@
 
 <div class="row">
   <div class="col-1">
-    Empty
+empty
 
   </div>
 
   <div class="col-10">
+      <div class="row">
 
 
 
+        {% for note in notes.object_list%}
 
-    <!-- content that will be repeated -->
-    <div class="row">
+        {% if forloop.first %}
+         <div class="card-deck">
+        {%endif%}
 
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        {% if forloop.counter|divisibleby:3 %}
+
+
+        <div class="card" style="">
+          <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px;"></a>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title">{{note.note_name}}</h5>
+
+           <!-- <p class="card-text">{{note.note_summary}}</p>-->
+           <p class="smaller_lighter">{{note.note_uploader_user}}</p>
+
+           <div >
+              <span class="fa fa-star checked star" style=""></span>
+              <span class="fa fa-star checked star"></span>
+              <span class="fa fa-star checked star"></span>
+              <span class="fa fa-star star"></span>
+              <span class="fa fa-star star"></span>
+              <span class = "rating_info rating_number">{{note.ratings}}</span>
+              <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
+            </div>
+
+            <br>
+
+            <div class="card-footer bg-transparent border-primary width:100%;">
+                          <p style="float:left;">{{note.note_category.cat_name}}</p>
+
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <p style=" float:right;font-size:1.1em;">${{note.note_price}}</p>
+
+
           </div>
+
         </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+
+
+           {% comment %}
+           end
+           {% endcomment %}
+
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+          <br>
+          <br>
+
+         {% comment %}
+         start
+         {% endcomment %}
+           <div class="card-deck">
+           {%if forloop.counter|divisibleby:9%}
           </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
+           {%endif%}
+
+
+
+           {%else%}
+
+
+           <div class="card" style="">
+             <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px;"></a>
+             <div class="card-body">
+               <h5 class="card-title">{{note.note_name}}</h5>
+
+              <!-- <p class="card-text">{{note.note_summary}}</p>-->
+              <p class="smaller_lighter">{{note.note_uploader_user}}</p>
+
+              <div >
+                 <span class="fa fa-star checked star" style=""></span>
+                 <span class="fa fa-star checked star"></span>
+                 <span class="fa fa-star checked star"></span>
+                 <span class="fa fa-star star"></span>
+                 <span class="fa fa-star star"></span>
+                 <span class = "rating_info rating_number">{{note.ratings}}</span>
+                 <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
+               </div>
+
+               <br>
+
+               <div class="card-footer bg-transparent border-primary width:100%;">
+                             <p style="float:left;">{{note.note_category.cat_name}}</p>
+
+             </div>
+               <p style=" float:right;font-size:1.1em;">${{note.note_price}}</p>
+
+
+             </div>
+
+           </div>
+
+
+
+
+
+
+
+
+
+           {%endif%}
+
+        {%endfor%}
+
+
+
+
       </div>
-    </div>
+      <div class="row" style="width:100%;">
 
-    <!-- Temp content start -->
-    <div class="row">
+        <div class="mx-auto">
+          {% if notes.paginator.num_pages > 1%}
+            <hr>
+            <div class="text-center">
+              {% for pg in notes.paginator.page_range%}
+                <a href="?page={{pg}}" class = "btn btn-light btn-sm {% if notes.number == pg%} active {% endif %}">{{pg}}</a>
+              {%endfor%}
+            </div>
+          {% endif%}
+        </div>
 
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
       </div>
-    </div>
 
-    <div class="row">
-
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!-- Temp content end -->
 
   </div>
 
+    <div class="col-1">
+      Empty
 
-
-
-  <div class="col-1">
-    Empty
+    </div>
 
   </div>
 
-</div>
-
-{% endblock%}
+  {% endblock%}

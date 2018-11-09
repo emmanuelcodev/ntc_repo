@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light content" style="padding-bottom:0px;padding-top:2px;">
 
-    <a class="navbar-brand" href="#"><img src="{% static 'images/letter-e.png'%}" style = "width:50px; height:50px;"></img><div style="display:inline;">Eagle Notes</div></a><!-- <a href='https://www.freepik.com/free-vector/vintage-vector-wing_3046714.htm'>Designed by Rawpixel.com</a>-->
+    <a class="navbar-brand" href="{% url 'market:market_homepage'%}"><img src="{% static 'images/letter-e.png'%}" style = "width:50px; height:50px;"></img><div style="display:inline;">Eagle Notes</div></a><!-- <a href='https://www.freepik.com/free-vector/vintage-vector-wing_3046714.htm'>Designed by Rawpixel.com</a>-->
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,13 +14,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width:80%;">
 
 
-      <ul class="navbar-nav pagination-centered " style="margin-left:auto;">
+      <ul class="navbar-nav pml-auto " style="margin-left:auto;">
         <li class="nav-item" style="padding-top:2px;">
 
              <a class="nav-link" href="#"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i> Categories <span class="sr-only">(current)</span></a>
              <li class="nav-item">
-               <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style = 'height:45px; width:500px;'>
+               <form class="form-inline my-2 my-lg-0" method="get" action="{%url 'market:search_from_query'%}">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style = 'height:45px; width:500px;' name="user_query">
                   <button style="height:35px;min-width:50px;display:inline;"class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search" ></i></button>
                 </form>
 
@@ -87,10 +87,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-
     <ul class="navbar-nav pagination-centered">
       <li class="nav-item" style="margin-top:10px">
         <form class="form-inline my-2 my-lg-0">
@@ -106,7 +103,6 @@
       <li class="nav-item" style="margin: 10px">
         <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i>()</a>
       </li>
-
       <li class="nav-item" style= "">
         <div id="menu">
           <ul>
@@ -121,20 +117,11 @@
                 <a class="dropdown-item" href="#">Contact Us</a>
               </div>
             </li>
-
             </li>
-
-
           </ul>
         </div>
-
-
       </li>
-
-
     </ul>
-
   </div>
 </nav>
-
 -->
