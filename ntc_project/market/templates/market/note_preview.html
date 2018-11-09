@@ -1,0 +1,172 @@
+{%extends 'base.html'%}
+
+{%block content%}
+  {% if note %}
+
+<!-- Note Information -->
+
+<div class="row" style="">
+  <div class="col-12" style="background-color: #505763; background: linear-gradient(#29303b,#29303b,#29303b);">
+    <div class="card-deck" style="background-color: #505763; background: linear-gradient(#29303b,#29303b,#29303b);min-height:270px;">
+    <div class="card" style="margin-left:auto; margin-right:auto;background-color: #505763; background: linear-gradient(#29303b,#29303b,#29303b);">
+      <div class="card-body" style="margin-left:8%; width: 50%; ">
+        <br>
+        <p style="text-align:left; color: #fff;font-weight: 400; font-size: 2.7em; margin-bottom:5px;font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;">{{note.note_name}}</p>
+
+        <p class="card-text" style="font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color: #fff; font-weight: 290; font-size: 1.2em;margin-top:5px;margin-bottom:5px; letter-spacing: 1px;">{{note.note_summary}}</p>
+        <br>
+        <div>
+          <span class="fa fa-star checked star"></span>
+          <span class="fa fa-star checked star"></span>
+          <span class="fa fa-star checked star"></span>
+          <span class="fa fa-star star"></span>
+          <span class="fa fa-star star"></span>
+           <span class = "rating_info smaller_lighter" style="color: #fff; margin-top:5px;">{{note.ratings}}</span>
+           <span class = "rating_info smaller_lighter"  style="color: #fff;">({{ note.note_times_purchased }} purchases)</span>
+           <span class = "rating_info smaller_lighter"  style="color: #fff;font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color: #fff; font-weight: 160; font-size: 1em; letter-spacing:1px;margin-left:20px;">{{note.category}}</span>
+<br>
+
+           <span class = "rating_info smaller_lighter"  style="color: #fff;font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color: #fff; font-weight: 160; font-size: 1em; letter-spacing:1px; margin-top:5px;"> Created by {{note.note_uploader_user}}</span>
+
+
+           <span class = "rating_info smaller_lighter"  style="color: #fff;font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color: #fff; font-weight: 160; font-size: 1em;letter-spacing:1px; margin-left:50px; margin-top:5px;"> Last updated {{ note.note_date_created }}</span>
+           <br>
+           <!-- class info -->
+
+         </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+</div>
+
+
+
+
+
+<div class="row" >
+
+<div class="col-1">
+
+</div>
+
+<div class="col-8" style="width:100%; background-color:white;;">
+<br>
+
+
+
+
+
+
+<div class="card-deck" style="width:100%;background-color:blue;">
+
+  <div class="card" style="margin-left:auto; margin-right:auto;">
+    <!-- style="max-height: 60vh; margin-left:auto; margin-right:auto;"-->
+    <a href="{{note.note_snippet.url}}"><img class="card-img-top" src="{{note.note_snippet.url}}"  alt="Card image cap"></a>
+
+
+  </div>
+</div>
+
+
+
+
+<!-- user ratings info-->
+
+
+<br>
+<div class="card-deck" style="width:100%;background-color:blue;">
+
+  <div class="card" style="margin-left:auto; margin-right:auto;">
+    <!-- style="max-height: 60vh; margin-left:auto; margin-right:auto;"-->
+
+   <div class="card-body">
+
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div class="col-3 ">
+
+  <div class="card-deck" style="width:100%;background-color:blue; margin-top:-160px; border-radius: 11px !important;">
+
+    <div class="card" style="margin-left:auto; margin-right:auto;">
+
+
+     <div class="card-body">
+        <img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="height:160px;">
+
+        <p class="card-title" style="font-size: 1.8em; margin-top: 10px; margin-left: auto; margin-right: auto; font-weight: bold;">$ {{note.note_price}}</p>
+        <form class="" action="index.html" method="post">
+          <button type="button" name="add_cart" style="margin-top:5px; width: 95%; margin-left:auto; margin-right:auto; height:50px; border-radius: 11px;background-color:#ff4d4d; color:#fff;">Add to Cart</button>
+          <br>
+          <button type="button" name="buy_now" style="margin-top:15px; width: 95%; margin-left:auto; margin-right:auto; height:50px; border-radius: 11px; color:grey;">Buy Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  {%endif%}
+<!-- snippet-->
+
+
+
+
+
+
+
+
+
+<!-- ratings-->
+
+  <div class="row">
+
+  <div class="col-9">
+
+  </div>
+  <div class="col-3">
+
+  </div>
+  </div>
+
+{%endblock%}
+
+
+<!--
+
+
+  <div class="card-deck" style="height:250px;">
+  <div class="card" style="margin-left:auto; margin-right:auto;">
+    <div class="card-body">
+      <h1 style="text-align:center;">{{note.note_name}}</h1>
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+
+</div>
+
+-->

@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+<br>
+<br>
+<div class="row">
+  <div class="col-2">
+
+  </div>
+
+
+
+  <div class="col-8">
+    {% for note in notes.object_list%}
+    <div class="card-deck" style="max-height: 65s0px; width: 100%;">
+    <div class="card" style="">
+      <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:500px;">
+</a>
+      <div class="card-body">
+        <h5 class="card-title">{{note.note_name}}</h5>
+
+       <!-- <p class="card-text">{{note.note_summary}}</p>-->
+       <p class="smaller_lighter">{{note.note_uploader_user}}</p>
+
+       <div >
+          <span class="fa fa-star checked star" style=""></span>
+          <span class="fa fa-star checked star"></span>
+          <span class="fa fa-star checked star"></span>
+          <span class="fa fa-star star"></span>
+          <span class="fa fa-star star"></span>
+          <span class = "rating_info rating_number">{{note.ratings}}</span>
+          <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
+        </div>
+
+        <br>
+
+        <div class="card-footer bg-transparent border-primary width:100%;">
+                      <p style="float:left;">{{note.note_category.cat_name}}</p>
+
+      </div>
+        <p style=" float:right;font-size:1.1em;">${{note.note_price}}</p>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endfor %}
+
+  </div>
+
+
+
+  <div class="col-2">
+
+  </div>
+
+</div>
+
+
+{%endblock%}
