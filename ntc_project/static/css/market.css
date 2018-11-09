@@ -1,0 +1,21 @@
+.checked {
+    color: orange;
+  }
+.smaller_lighter{
+
+  color:#808080;
+  font-size: .9em;
+  }
+
+
+  .fa {
+      font-size: .9em;
+  }
+
+  .rating_info{
+    font-size: .9em;
+  }
+
+  .rating_number{
+    font-weight: lighter;
+  }
