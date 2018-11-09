@@ -117,12 +117,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [# this is where it will look for addditional sstatic files aside from the static folder in each app to put into the STATIC_ROOT file
     os.path.join(BASE_DIR, 'ntc', 'static' )
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') #will look for deployment, everything will stored here after pytho manage.py collectstatic command https://stackoverflow.com/questions/24022558/differences-between-staticfiles-dir-static-root-and-media-root/24022604
 
 
 MEDIA_URL = '/media/'
