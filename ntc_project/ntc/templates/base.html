@@ -17,8 +17,13 @@
         <link rel="stylesheet" href="{%static 'css/note_preview.css'%}">
         {%endif%}
 
+        {%if cart%}
         <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+        {%endif%}
+        
+        {%if mynotes or collection%}
         <link rel="stylesheet" type="text/css" href="{% static 'css/notes.css' %}">
+        {%endif%}
     <title></title>
   </head>
   <body>
