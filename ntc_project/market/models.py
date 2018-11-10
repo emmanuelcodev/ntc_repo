@@ -43,7 +43,7 @@ class Notes(models.Model):
     def get_preview_url(self):
         return reverse('market:preview_note', args=[self.category.slug, self.slug, 1])
     def prod_id(self):
-        return id
+        return self.id
 
 
     class Meta:
@@ -59,7 +59,7 @@ class Notes(models.Model):
 
 class Comment(models.Model):
     buyer_user = models.CharField(max_length=60, unique = False)
-    buyer_rating = models.DecimalField(max_digits =3, decimal_places = 1)
+    buyer_rating = models.IntegerField(default=-1)
     buyer_commentary = models.TextField(blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     product_id = models.IntegerField(default=0)
