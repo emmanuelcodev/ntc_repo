@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 import os
-from .models import Notes, Category
+from .models import Notes, Category, Comment
 from django.core.paginator import Paginator,EmptyPage, InvalidPage
 from django.db.models import Q
 
@@ -96,7 +96,47 @@ def show_specific_note(request, cat_slug, note_slugg, preview = 0):
     if preview == 0:
         return render(request, 'market/specific_note.html', {'specific_note':'specific_note', 'note':note})
     else:
-        return render(request, 'market/note_preview.html', {'note_preview':'preview_note', 'note':note})
+        #comments for specific note
+
+        id_note = note.prod_id()
+
+        print('id note is ', id_note)
+        print('\n\n\n\n\nworking great so far1')
+
+        print(type(id_note))
+        note_comments = Comment.objects.all().filter(product_id = id_note)
+
+
+
+
+        print('\n\n note comments \n\n', note_comments)
+
+        if len(note_comments) < 1:
+            print('inside empty query set')
+            return render(request, 'market/note_preview.html', {'note_preview':'preview_note', 'note':note, 'no_comments': 'Be the first one to leave a comment'})
+        else:
+            general_info = [0,[],[],[],[],[]]
+            #indexes: total ratings, 1 star, 2 star, 3 star, 4 star,5 star,
+            for x in note_comments:
+                #print(x.buyer_rating)
+                general_info[0] = general_info[0] + 1
+                general_info[int(x.buyer_rating)].append(x.buyer_rating)
+
+
+            note_info = {}
+            if general_info[1]:
+                note_info['one_star'] = len(general_info[1])
+            if general_info[2]:
+                note_info['two_star'] = len(general_info[2])
+            if general_info[3]:
+                note_info['three_star'] = len(general_info[2])
+            if general_info[4]:
+                note_info['four_star'] = len(general_info[2])
+            if general_info[5]:
+                note_info['five_star'] = len(general_info[2])
+
+
+            return render(request, 'market/note_preview.html', {'note_preview':'preview_note', 'note':note, 'note_comments': note_comments, 'total_ratings':general_info[0],'one_star':general_info[1],'two_star':general_info[2], 'three_star':general_info[3], 'four_star':general_info[4], 'five_star':general_info[5]})
 
 '''
 
