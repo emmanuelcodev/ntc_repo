@@ -12,7 +12,7 @@ admin.site.register(Category, CategoryManager)
 
 
 class NoteManager(admin.ModelAdmin):
-    list_display = ['note_name', 'note_price','note_date_created', 'note_uploader_user']
+    list_display = ['note_name', 'note_price','note_date_created', 'note_uploader_user', 'id']
     list_editable = ['note_price']
     prepopulated_fields = {'slug':('note_name',)}
     list_per_page = 30

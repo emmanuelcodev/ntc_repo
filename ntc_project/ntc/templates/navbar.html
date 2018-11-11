@@ -40,10 +40,10 @@
 
     <ul class="navbar-nav ml-auto" style=" ">
       <li class="nav-item" style="margin-top:10px">
-        <a class="nav-link" href="#">My Notes <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'mynotes:mynotes' %}">My Notes <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" style="margin: 10px">
-        <a class="nav-link" href="#" style="max-width:60px;"><i class="fas fa-shopping-cart"></i></a>
+        <a class="nav-link" href="{%  url 'cart:cart' %}" style="max-width:60px;"><i class="fas fa-shopping-cart"></i></a>
       </li>
 
       <li class="nav-item" style="">
