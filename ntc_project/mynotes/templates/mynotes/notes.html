@@ -12,30 +12,105 @@
           <br>
           <p class="text-center title">All Purchases</p>
 
+<!-- test -->
+
+
+    <div class="row">
 
 
 
+      {% for note in notes_purchased%}
+
+      {% if forloop.first %}
+       <div class="card-deck">
+      {%endif%}
+
+      {% if forloop.counter|divisibleby:3 %}
 
 
+      <div class="card" style="">
+        <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px;"></a>
+        <div class="card-body">
+          <h5 class="card-title">{{note.note_name}}</h5>
 
+         <!-- <p class="card-text">{{note.note_summary}}</p>-->
+         <p class="smaller_lighter">{{note.note_uploader_user}}</p>
 
-
-
-          {{ids}}
-          <div class="card-deck">
-              <div class="card mb-3" style="max-width: 500px;">
-                  <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:300px;">
-                  <div class="card-body">
-                      <div class="title_price">
-                           <h5 class="card-title title" style="display: inline;">Card title</h5>
-                           <p class="price" style="display: inline; float: right;">$20.00</p>
-                      </div>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <a href="#">Remove</a>
-                  </div>
-              </div>
+         <div >
+            <span class="fa fa-star checked star" style=""></span>
+            <span class="fa fa-star checked star"></span>
+            <span class="fa fa-star checked star"></span>
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span>
+            <span class = "rating_info rating_number">{{note.ratings}}</span>
+            <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
           </div>
 
+          <br>
+
+          <div class="card-footer bg-transparent border-primary width:100%;">
+                        <p style="float:left;">{{note.note_category.cat_name}}</p>
+
+        </div>
+          <p style=" float:right;font-size:1.1em;">${{note.note_price}}</p>
+
+
+        </div>
+
+      </div>
+
+
+         {% comment %}
+         end
+         {% endcomment %}
+
+        </div>
+        <br>
+        <br>
+
+       {% comment %}
+       start
+       {% endcomment %}
+         <div class="card-deck">
+         {%if forloop.counter|divisibleby:9%}
+        </div>
+         {%endif%}
+
+
+
+         {%else%}
+
+
+         <div class="card" style="">
+           <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px;"></a>
+           <div class="card-body">
+             <h5 class="card-title">{{note.note_name}}</h5>
+
+            <!-- <p class="card-text">{{note.note_summary}}</p>-->
+            <p class="smaller_lighter">{{note.note_uploader_user}}</p>
+
+            <div >
+               <span class="fa fa-star checked star" style=""></span>
+               <span class="fa fa-star checked star"></span>
+               <span class="fa fa-star checked star"></span>
+               <span class="fa fa-star star"></span>
+               <span class="fa fa-star star"></span>
+               <span class = "rating_info rating_number">{{note.ratings}}</span>
+               <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
+             </div>
+
+             <br>
+
+             <div class="card-footer bg-transparent border-primary width:100%;">
+                           <p style="float:left;">{{note.note_category.cat_name}}</p>
+
+           </div>
+             <p style=" float:right;font-size:1.1em;">${{note.note_price}}</p>
+
+
+           </div>
+
+         </div>
 
 
 
@@ -43,6 +118,83 @@
 
 
 
+
+
+         {%endif%}
+
+      {%endfor%}
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+<!-- end test -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!--
+          {%for note in notes_purchased %}
+          {% if forloop.first %}
+           <div class="card-deck">
+          {%endif%}
+                <div class="card mb-3" style="max-width: 500px;">
+                    <img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:300px;">
+                    <div class="card-body">
+                        <div class="title_price">
+                             <h5 class="card-title title" style="display: inline;">{{note.note_name}}</h5>
+                             <p class="price" style="display: inline; float: right;">{{note.note_price}}</p>
+                        </div>
+                        <p class="card-text">{{note.note_summary}}</p>
+                        <a href="#">Remove</a>
+                    </div>
+                </div>
+            {% if forloop.counter|divisibleby:3 %}
+            </div>
+            {%endif%}
+            </div>
+          {%endfor%}
+          -->
 
 
         </div>

@@ -4,6 +4,6 @@ from . import views
 app_name = 'mynotes'
 
 urlpatterns = [
-    path('mynotes/', views.mynotes,name="mynotes"),
-    path('notes_collection/', views.notes_collection,name="notes_collection"),
+    path('', views.mynotes,name="mynotes"),
+    path('notes/', views.selected_note,name="selected_note"),
 ]
