@@ -313,11 +313,11 @@
         <img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="height:160px;">
 
         <p class="card-title" style="font-size: 1.8em; margin-top: 10px; margin-left: auto; margin-right: auto; font-weight: bold;">$ {{note.note_price}}</p>
-        <form class="" action="index.html" method="post">
-          <button type="button" name="add_cart" style="margin-top:5px; width: 95%; margin-left:auto; margin-right:auto; height:50px; border-radius: 11px;background-color:#ff4d4d; color:#fff;">Add to Cart</button>
+        <!--<form class="" action="{{note.add_to_cart}}" method="post">-->
+          <a href="{{note.add_to_cart_url}}"><button type="button" name="add_cart" style="margin-top:5px; width: 95%; margin-left:auto; margin-right:auto; height:50px; border-radius: 11px;background-color:#ff4d4d; color:#fff;">Add to Cart</button></a>
           <br>
           <button type="button" name="buy_now" style="margin-top:15px; width: 95%; margin-left:auto; margin-right:auto; height:50px; border-radius: 11px; color:grey;">Buy Now</button>
-        </form>
+        <!-- </form>-->
       </div>
     </div>
   </div>
