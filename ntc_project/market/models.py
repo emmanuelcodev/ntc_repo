@@ -44,8 +44,13 @@ class Notes(models.Model):
         return reverse('market:preview_note', args=[self.category.slug, self.slug, 1])
     def prod_id(self):
         return self.id
+<<<<<<< HEAD
     def get_selected_note_url(self):
         return reverse('mynotes:selected_note', args=[self.prod_id()])
+=======
+    def add_to_cart_url(self):
+        return reverse('cart:add_to_cart', args=[self.prod_id()])
+>>>>>>> upstream/master
 
 
     class Meta:
