@@ -149,9 +149,13 @@ def show_specific_note(request, cat_slug, note_slugg, preview = 0):
                 note_info['five_star'] = len(general_info[5])
             else:
                 note_info['five_star'] = 0
-
+            #get overall rating
             overal_rating = round(((note_info['one_star']*1) + (note_info['two_star']*2) + (note_info['three_star']*3) + (note_info['four_star']*4) + (note_info['five_star']*5))/(general_info[0]), 2)
+
+            
+            #render page
             return render(request, 'market/note_preview.html', {'note_preview':'preview_note', 'note':note, 'note_comments': note_comments, 'total_ratings':general_info[0],'one_star':note_info['one_star'], 'two_star':note_info['two_star'], 'three_star':note_info['three_star'], 'four_star':note_info['four_star'], 'five_star':note_info['five_star'], 'prog1':(note_info['one_star']/general_info[0])*100, 'prog2':(note_info['two_star']/general_info[0])*100, 'prog3':(note_info['three_star']/general_info[0])*100, 'prog4':(note_info['four_star']/general_info[0])*100, 'prog5':(note_info['five_star']/general_info[0])*100, 'overal_rating':overal_rating})
+
 
 '''
 

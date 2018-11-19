@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .models import CartItems
 from market.models import Notes
 
@@ -33,9 +33,10 @@ def add_to_cart(request,product_id):
 
     #cart_items = CartItems.objects.get
     #return redirect('product_detail', product_id=product_id)
-    return render(request, "cart/cart.html" , {'cart':'cart'})
+    return redirect(to = 'cart:cart')
 
 def remove_cart(request, cart_id, dummy):
     cart_item_removing = CartItems.objects.get(id=cart_id)
     cart_item_removing.delete()
-    return redirect("cart")
+    return redirect(to = 'cart:cart')
+    #return redirect(to='detail', product_id=product.id)
