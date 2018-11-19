@@ -25,5 +25,8 @@ def mynotes(request):
 
 
 
-def selected_note(request):
-    return render(request, "mynotes/notes_collection.html", {'collection':'collection'})
+def selected_note(request, mynotes_id):
+
+    note = Notes.objects.get(id=mynotes_id)
+
+    return render(request, 'mynotes/notes_collection.html', {'selected_note':'selected_note', 'note':note})

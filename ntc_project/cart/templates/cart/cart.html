@@ -7,6 +7,68 @@
 
 
 {%block content%}
+
+<!-- New Cart Test -->
+<div class="row">
+  <div class="col-1">
+  </div>
+  <div class="col-8">
+  {% for cart_item in cart_items%}
+  <div class="row">
+
+   <div class="card-deck mx-auto">
+
+
+
+
+  <div class="card">
+    <a href="{{cart_item.note.get_selected_note_url}}"><img class="card-img-top" src="{{cart_item.note.note_snippet.url}}" alt="Card image cap" style="max-height:500px; max-width: 500px; margin-top: 20px;"></a>
+    <div class="card-body">
+      <h5 class="card-title">{{cart_item.note.note_name}}</h5>
+
+     <!-- <p class="card-text">{{note.note_summary}}</p>-->
+     <p class="smaller_lighter">{{cart_item.note.note_uploader_user}}</p>
+
+     <div >
+        <span class="fa fa-star checked star" style=""></span>
+        <span class="fa fa-star checked star"></span>
+        <span class="fa fa-star checked star"></span>
+        <span class="fa fa-star star"></span>
+        <span class="fa fa-star star"></span>
+        <span class = "rating_info rating_number">{{cart_item.note.ratings}}</span>
+        <span class = "rating_info smaller_lighter">({{cart_item.note.note_times_purchased }})</span>
+      </div>
+
+      <br>
+
+      <div class="card-footer bg-transparent border-primary width:100%;">
+        <p style="float:left;">{{cart_items.note.note_category.cat_name}}</p>
+      </div>
+        <a href="{{cart_item.remove_cart_item_url}}">Remove</a>
+        <p style=" float:right;font-size:1.1em;">${{cart_item.note.note_price}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  {%endfor%}
+
+
+
+
+
+
+<!-- New Cart Test End -->
+
+
+
+
+
+
+
+
+
+
+<!-- Old Version of the Cart
 <div class="row">
     <div class="col-1">
     </div>
@@ -42,69 +104,10 @@
 
    </div>
 
-<!---- Temporary -->
-
-<div class="card-deck">
-       <div class="card mb-3" style="max-width: 500px;">
-               <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:300px;">
-               <div class="card-body">
-                   <div class="title_price">
-                        <h5 class="card-title title" style="display: inline;">Card title</h5>
-                        <p class="price" style="display: inline; float: right;">$20.00</p>
-                   </div>
-                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                   <a href="#">Remove</a>
-               </div>
-           </div>
+-->
 
 
-<div class="card mb-3" style="max-width: 500px;">
-<img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:300px;">
-<div class="card-body">
-   <div class="title_price">
-        <h5 class="card-title title" style="display: inline;">Card title</h5>
-        <p class="price" style="display: inline; float: right;">$20.00</p>
-   </div>
-   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-   <a href="#">Remove</a>
-</div>
-</div>
-
-</div>
-
-<div class="card-deck">
-       <div class="card mb-3" style="max-width: 500px;">
-               <img class="card-img-top" src="img/figure_7.2.jpg" alt="Card image cap" style="max-height:300px;">
-               <div class="card-body">
-                   <div class="title_price">
-                        <h5 class="card-title title" style="display: inline;">Card title</h5>
-                        <p class="price" style="display: inline; float: right;">$20.00</p>
-                   </div>
-                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                   <a href="#">Remove</a>
-               </div>
-           </div>
-
-
-<div class="card mb-3" style="max-width: 500px;">
-<img class="card-img-top" src="img/figure_7.2.jpg" alt="Card image cap" style="max-height:300px;">
-<div class="card-body">
-   <div class="title_price">
-        <h5 class="card-title title" style="display: inline;">Card title</h5>
-        <p class="price" style="display: inline; float: right;">$20.00</p>
-   </div>
-   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-   <a href="#">Remove</a>
-</div>
-</div>
-
-</div>
-
-
- <!---- Temporary -->
-
-
-
+<!--Temporary-->
     </div>
     <div class="col-3">
         <br>
@@ -112,8 +115,8 @@
         <br>
         <br>
         <br>
-       <p>Total:</p>
-       <p>$47.52</p>
+       <p style="font-size: 30px;">Total:</p>
+       <p style="font-size: 30px;">${{sum_of_price}}</p>
        <form>
            <button type="button" class="btn btn-primary btn-lg" id="checkout_button">Checkout</button>
        </form>
@@ -123,5 +126,5 @@
 
 
 
-<!---- Temporary -->
+<!-- Temporary -->
 {%endblock%}

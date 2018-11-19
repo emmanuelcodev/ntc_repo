@@ -7,12 +7,11 @@
         <div class="col-1">
         </div>
         <div class="col-10">
-            <h1 class="text-center">{{}}</h1>
-            <div class="center_picture" style="overflow: scroll;">
-                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
-                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
-                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
-                <img class="card-img-top" src="{% static 'images/figure_7.2.jpg' %}" alt="Card image cap" style="max-height:800px; max-width: 800px; border:1px solid black;">
+            <h1 class="text-center">{{note.note_name}}</h1>
+            <div class="center_picture" style="overflow: scroll; width: 80%;">
+                <img class="card-img-top" src="{{note.note_image1.url}}" alt="Card image cap" style="max-height:1100px; border:1px solid black;">
+                <img class="card-img-top" src="{{note.note_image2.url}}" alt="Card image cap" style="max-height:1100px; border:1px solid black;">
+                <img class="card-img-top" src="{{note.note_image3.url}}" alt="Card image cap" style="max-height:1100px; border:1px solid black;">
             </div>
             <br>
             <br>

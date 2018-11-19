@@ -8,5 +8,5 @@ class MyPurchases(models.Model):
 
     def notes_id_f(self):
         return id
-    def get_notes_url(self):
+    def get_certain_notes_url(self):
         return reverse('mynotes:selected_note', args=[self.category.slug, self.slug, 1])
