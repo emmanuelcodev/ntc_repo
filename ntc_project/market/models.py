@@ -48,7 +48,8 @@ class Notes(models.Model):
         return reverse('cart:add_to_cart', args=[self.prod_id()])
     def get_selected_note_url(self):
         return reverse('mynotes:selected_note', args=[self.prod_id()])
-
+    def get_make_review_url(self):
+        return reverse('mynotes:make_review', args=[self.prod_id()])
 
     class Meta:
         ordering = ('note_name',)
