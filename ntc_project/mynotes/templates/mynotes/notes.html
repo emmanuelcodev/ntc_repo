@@ -37,13 +37,22 @@
          <!-- <p class="card-text">{{note.note_summary}}</p>-->
          <p class="smaller_lighter">{{note.note_uploader_user}}</p>
 
+
          <div >
+
+
+
+           {{note.get_complete_star}}
+
+           <!--
             <span class="fa fa-star checked star" style=""></span>
             <span class="fa fa-star checked star"></span>
             <span class="fa fa-star checked star"></span>
             <span class="fa fa-star star"></span>
             <span class="fa fa-star star"></span>
-            
+          -->
+
+
             <span class = "rating_info rating_number">{{note.ratings}}</span>
             <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
           </div>
@@ -92,11 +101,16 @@
             <p class="smaller_lighter">{{note.note_uploader_user}}</p>
 
             <div >
+              {{note.get_complete_star}}
+
+              <!--
                <span class="fa fa-star checked star" style=""></span>
                <span class="fa fa-star checked star"></span>
                <span class="fa fa-star checked star"></span>
                <span class="fa fa-star star"></span>
                <span class="fa fa-star star"></span>
+             -->
+
                <span class = "rating_info rating_number">{{note.ratings}}</span>
                <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
              </div>
@@ -166,28 +180,6 @@
 
 
 
-          <!--
-          {%for note in notes_purchased %}
-          {% if forloop.first %}
-           <div class="card-deck">
-          {%endif%}
-                <div class="card mb-3" style="max-width: 500px;">
-                    <img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:300px;">
-                    <div class="card-body">
-                        <div class="title_price">
-                             <h5 class="card-title title" style="display: inline;">{{note.note_name}}</h5>
-                             <p class="price" style="display: inline; float: right;">{{note.note_price}}</p>
-                        </div>
-                        <p class="card-text">{{note.note_summary}}</p>
-                        <a href="#">Remove</a>
-                    </div>
-                </div>
-            {% if forloop.counter|divisibleby:3 %}
-            </div>
-            {%endif%}
-            </div>
-          {%endfor%}
-          -->
 
 
         </div>

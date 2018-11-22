@@ -315,11 +315,17 @@
             <p class="card-text">
               <h5 class="card-title" style=" display:inline;">{{comment.buyer_user}}</h5><br>
               <div>
+                  {{comment.get_buyer_rating_star}}
+                <span class="" style="font-size:.8em;">
+                  ({{comment.buyer_rating}} of 5 stars)
+                </span>
+              <!--
                 <span class="fa fa-star checked star"></span>
                 <span class="fa fa-star checked star"></span>
                 <span class="fa fa-star checked star"></span>
                 <span class="fa fa-star star"></span>
                 <span class="fa fa-star star"></span>
+              -->
               </div>
             </p>
 

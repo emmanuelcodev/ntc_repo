@@ -52,11 +52,15 @@ empty
            <p class="smaller_lighter">{{note.note_uploader_user}}</p>
 
            <div >
+             {{note.get_complete_star}}
+             <!--
               <span class="fa fa-star checked star" style=""></span>
               <span class="fa fa-star checked star"></span>
               <span class="fa fa-star checked star"></span>
               <span class="fa fa-star star"></span>
               <span class="fa fa-star star"></span>
+
+            -->
               <span class = "rating_info rating_number">{{note.ratings}}</span>
               <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
             </div>
@@ -105,11 +109,16 @@ empty
               <p class="smaller_lighter">{{note.note_uploader_user}}</p>
 
               <div >
+                {{note.get_complete_star}}
+
+                <!--
                  <span class="fa fa-star checked star" style=""></span>
                  <span class="fa fa-star checked star"></span>
                  <span class="fa fa-star checked star"></span>
                  <span class="fa fa-star star"></span>
                  <span class="fa fa-star star"></span>
+
+               -->
                  <span class = "rating_info rating_number">{{note.ratings}}</span>
                  <span class = "rating_info smaller_lighter">({{ note.note_times_purchased }})</span>
                </div>

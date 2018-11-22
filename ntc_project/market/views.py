@@ -150,7 +150,9 @@ def show_specific_note(request, cat_slug, note_slugg, preview = 0):
             else:
                 note_info['five_star'] = 0
             #get overall rating
+
             overal_rating = round(((note_info['one_star']*1) + (note_info['two_star']*2) + (note_info['three_star']*3) + (note_info['four_star']*4) + (note_info['five_star']*5))/(general_info[0]), 2)
+            
             star_lists = generate_star_info(overal_rating)
             print('complete_rating is ', star_lists[0], ' \n partial_rating is ', star_lists[1], '\n blank_rating is ', star_lists[2])
 
