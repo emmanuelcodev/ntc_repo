@@ -137,3 +137,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') #will look for deployment, everyt
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
