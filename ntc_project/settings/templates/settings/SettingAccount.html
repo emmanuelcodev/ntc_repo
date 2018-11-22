@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+    <div class="row">
+      <div class ="col-2">
+        <ul class="align-middle" style="padding-top:60%;height:120vh;">
+                </br></br>      </br></br>      <li>
+                  <a class="" href ="{% url 'settings:settings_payment'%}"  >Account </a>
+                  </li>
+                  <li>
+                  <a class="" href ="{% url 'settings:payment_payment'%}"  >Payment </a>
+                  </li>
+                  <li>
+                  <a class="" href ="{% url 'settings:policy_payment'%}"  >Policy </a>
+                  </li>
+        </ul>
+      </div>
+      <div class ="col-8">
+        <h1 class= "page_title" style="text-align:center;width:100%">Setting</h1><br>
+        <form method= "POST" {%url 'settings:settings_payment'%}>
+          {%csrf_token%}
+          <div class="mx-auto">
+
+        <p class="text-center" style = "font-size: 1.4em;">
+  New Password
+        </p>
+        <p class="text-center" style ="text-align:center;width:100%;"><input type="text" style ="width:30%;"id="newPassword" name = "newPassword";><p>
+        <p class="text-center" style = "font-size: 1.4em;">
+        Confirm New Password
+        </p>
+        <p class="text-center"><input type="text" id="confirmNewPassword"type="text" style ="width:30%" name= "confirmNewPassword";> <p class="text-center">
+        <p class="text-center" style = "font-size: 1.4em;">
+        Current Password
+        </p>
+        <p class="text-center"><input type="text" style ="width:30%"id="currentPassword" name ="currentPassword";><br><br>
+                </p>
+        <p class="text-center">
+        <button class="btn btn-primary"style = "width:15%;" type="submit" >Save</button>
+        </p>
+      </div>
+      </form>
+
+      {%if message%}
+      <h2>
+        {{message}}
+      </h2>
+      {%endif%}
+      </div>
+      <div class ="col-1">
+      </div>
+    </div>
+
+    {%endblock%}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'market.apps.MarketConfig',
     'cart.apps.CartConfig',
     'mynotes.apps.MynotesConfig',
+    'settings.apps.SettingsConfig',
     #'account.apps.AccountConfig',
 ]
 
