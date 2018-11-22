@@ -54,6 +54,13 @@ def make_review(request, notes_id=None):
                 rating = 4
             else:
                 rating = 5
+
+            # Add Comment to database
+            user_comment = Comment.objects.create(buyer_user="IAlan",buyer_rating=rating, buyer_commentary=message, date_created=datetime.now(), product_id=notes_id)
+            user_comment.save()
+
+
+
             # Puts rating and comment algorithm
             note_comments = Comment.objects.all().filter(product_id = notes_id)
 
@@ -98,25 +105,28 @@ def make_review(request, notes_id=None):
                 else:
                     note_info['five_star'] = 0
                 # Add rating that user is making
-                if rating == 1:
-                    note_info['one_star'] += 1
-                elif rating == 2:
-                    note_info['two_star'] += 1
-                elif rating == 3:
-                    note_info['three_star'] += 1
-                elif rating == 4:
-                    note_info['four_star'] += 1
-                else:
-                    note_info['five_star'] += 1
+                #if rating == 1:
+                #    note_info['one_star'] += 1
+                #elif rating == 2:
+                #    note_info['two_star'] += 1
+                #elif rating == 3:
+                #    note_info['three_star'] += 1
+                #elif rating == 4:
+                #    note_info['four_star'] += 1
+                #else:
+                #    note_info['five_star'] += 1
                 #get overall rating
                 overal_rating = round(((note_info['one_star']*1) + (note_info['two_star']*2) + (note_info['three_star']*3) + (note_info['four_star']*4) + (note_info['five_star']*5)) /(general_info[0]), 2)
-                # Add Comment to database
-                user_comment = Comment.objects.create(buyer_user="IAlan",buyer_rating=rating, buyer_commentary=message, date_created=datetime.now(), product_id=notes_id)
-                user_comment.save()
+
                 #updating overall note rating
-                note_being_reviewed = Notes.objects.all().filter(id=notes_id)
+                #note_being_reviewed = Notes.objects.all().filter(id=notes_id)
+                note_being_reviewed = Notes.objects.get(id=notes_id)
                 note_being_reviewed.ratings = overal_rating
-                
+                note_being_reviewed.note_times_purchased+=1
+                note_being_reviewed.save()
+                print('note is ' , note_being_reviewed)
+                #print('\n lenth of notes at the moment is ', len())
+
     #Add comment to comment table
     print("inside make review")
     return redirect(to = 'mynotes:mynotes')

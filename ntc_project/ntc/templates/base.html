@@ -11,19 +11,23 @@
         <link rel="stylesheet" href="{%static 'css/custom.css'%}">
         {%if market %}
         <link rel="stylesheet" href="{%static 'css/market.css'%}">
+        <link rel="stylesheet" href="{%static 'css/ratings.css'%}">
         {%endif %}
 
         {%if note_preview%}
+        <link rel="stylesheet" href="{%static 'css/ratings.css'%}">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="{%static 'css/note_preview.css'%}">
 
         {%endif%}
 
         {%if cart%}
+        <link rel="stylesheet" href="{%static 'css/ratings.css'%}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
         {%endif%}
 
         {%if mynotes or selected_note%}
+        <link rel="stylesheet" href="{%static 'css/ratings.css'%}">
         <link rel="stylesheet" href="{%static 'css/star_rating.css'%}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/notes.css' %}">
         {%endif%}

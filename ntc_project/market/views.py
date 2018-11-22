@@ -151,31 +151,78 @@ def show_specific_note(request, cat_slug, note_slugg, preview = 0):
                 note_info['five_star'] = 0
             #get overall rating
             overal_rating = round(((note_info['one_star']*1) + (note_info['two_star']*2) + (note_info['three_star']*3) + (note_info['four_star']*4) + (note_info['five_star']*5))/(general_info[0]), 2)
+            star_lists = generate_star_info(overal_rating)
+            print('complete_rating is ', star_lists[0], ' \n partial_rating is ', star_lists[1], '\n blank_rating is ', star_lists[2])
 
-            
             #render page
-            return render(request, 'market/note_preview.html', {'note_preview':'preview_note', 'note':note, 'note_comments': note_comments, 'total_ratings':general_info[0],'one_star':note_info['one_star'], 'two_star':note_info['two_star'], 'three_star':note_info['three_star'], 'four_star':note_info['four_star'], 'five_star':note_info['five_star'], 'prog1':(note_info['one_star']/general_info[0])*100, 'prog2':(note_info['two_star']/general_info[0])*100, 'prog3':(note_info['three_star']/general_info[0])*100, 'prog4':(note_info['four_star']/general_info[0])*100, 'prog5':(note_info['five_star']/general_info[0])*100, 'overal_rating':overal_rating})
+            if star_lists[1]:
+                return render(request, 'market/note_preview.html', {'note_preview':'preview_note', 'note':note, 'note_comments': note_comments, 'total_ratings':general_info[0],'one_star':note_info['one_star'], 'two_star':note_info['two_star'], 'three_star':note_info['three_star'], 'four_star':note_info['four_star'], 'five_star':note_info['five_star'], 'prog1':(note_info['one_star']/general_info[0])*100, 'prog2':(note_info['two_star']/general_info[0])*100, 'prog3':(note_info['three_star']/general_info[0])*100, 'prog4':(note_info['four_star']/general_info[0])*100, 'prog5':(note_info['five_star']/general_info[0])*100, 'overal_rating':overal_rating, 'complete_rating':star_lists[0], 'partial_rating':star_lists[1], 'blank_rating':star_lists[2]})
+            else:
+                return render(request, 'market/note_preview.html', {'note_preview':'preview_note', 'note':note, 'note_comments': note_comments, 'total_ratings':general_info[0],'one_star':note_info['one_star'], 'two_star':note_info['two_star'], 'three_star':note_info['three_star'], 'four_star':note_info['four_star'], 'five_star':note_info['five_star'], 'prog1':(note_info['one_star']/general_info[0])*100, 'prog2':(note_info['two_star']/general_info[0])*100, 'prog3':(note_info['three_star']/general_info[0])*100, 'prog4':(note_info['four_star']/general_info[0])*100, 'prog5':(note_info['five_star']/general_info[0])*100, 'overal_rating':overal_rating, 'complete_rating':star_lists[0],'blank_rating':star_lists[2]})
+
+def generate_star_info(rating):
+    complete_rating = int(rating)#need to know how many complete filled orange stars to print out
+    remaining_rating = rating % complete_rating#need to know how paritally filled the star is next to the complete star
+    blank_ratings = 5 - complete_rating #needed to know how many blank stars to put at the end
+    print('inside function \n  complete_rating is ', complete_rating, ' \n partial_rating is ', remaining_rating, '\n blank_rating is ', blank_ratings)
+
+
+    #put code for html code
+
+    star_empty_list = []
+
+    star_empty_list.append([0]*complete_rating)
+    print('list is', star_empty_list)
+
+    #check partiall filled star then add it at the end of html code
+    if remaining_rating >= 0.01:
+        star_empty_list.append([3])
+    else:
+        star_empty_list.append(None)
+    print('list is after seconds', star_empty_list)
+    #put empty stars at the end
+    if len(star_empty_list[0]) <= 4: #only works if below four, because othersise will have 4 stars, 1 partial, and 1 blank
+        if len(star_empty_list[0]) < 4:
+            print('len working')
+
+            if remaining_rating >=0.01:#if partial is not full need extra blanks
+                    star_empty_list.append([0]*(blank_ratings-1))
+            else:
+                star_empty_list.append([0]*blank_ratings)
+
+        else:#if four
+            if remaining_rating >= 0.1:
+                star_empty_list.append(None)
+            else:
+                star_empty_list.append([0])
+    else:#if five
+        star_empty_list.append(None)
+    #    if star_empty_list[1]:#if partial is not full need extra blanks
+    #        star_empty_list.append([0]*blank_ratings)
+    #    else:
+    #        star_empty_list.append([0]*(blank_ratings -1)) #if partial star exists then blank star is one less
+    #        print('entire list is ', star_empty_list)
+    print('so whole list inside of function is ', star_empty_list)
+    return star_empty_list
 
 
 '''
+def generate_star_html(rating):
+    complete_rating = int(rating)#need to know how many complete filled orange stars to print out
+    remaining_rating = rating % complete_rating#need to know how paritally filled the star is next to the complete star
+    blank_ratings = 5 - complete_rating #needed to know how many blank stars to put at the end
 
-def search(request):
-    #show nothing if user enters blank search result
-    notes = None
-    query = None
-    #if user actualy enters a query, grab it
-    if 'user_query' in request.GET:
-        query = request.GET.get('user_query')
-        #checks if search is in name of product, summary of product, or category
-        notes = Notes.objects.all().filter(Q(note_name__contains = query)|Q(note_summary__contains = query)|Q(note_category__cat_name__contains = query))
-        print('working in the if part')
-        print(notes)
-        print('hello')
-        return render(request, os.path.join('market', 'market_after_search.html'), {'query':query, 'notes':notes})
-    else:
-        print('working in the else part')
-        return render(request, os.path.join('market', 'market_after_search.html'))
+    #put code for html code
+    star_html = ''
+    for x in range(complete_rating):
+        star_html += '<span class="rating" style="font-size:1.2em;">●</span>'
 
+    #check partiall filled star then add it at the end of html code
+    if remaining_rating >= 0.01 and remaining_rating <=1:
+        star_html += '<span class="rating" style="font-size:1.2em;">◐</span>'
 
-
+    #put empty stars at the end
+    for x in range(blank_ratings):
+        star_html += '<span class="rating_blank" style="font-size:1.2em;">○</span>'
+    return star_html
 '''

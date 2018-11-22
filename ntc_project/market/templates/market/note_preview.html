@@ -15,12 +15,54 @@
 
         <p class="card-text" style="font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color: #fff; font-weight: 290; font-size: 1.2em;margin-top:5px;margin-bottom:5px; letter-spacing: 1px;">{{note.note_summary}}</p>
         <br>
+
         <div>
+          {% if complete_rating%}
+            {% for x in complete_rating%}
+            <span class="rating" style="font-size:1.2em;">●</span>
+            {% endfor %}
+          {% else %}
+          <span class="rating_blank" style="font-size:1.2em;">○</span>
+          <span class="rating_blank" style="font-size:1.2em;">○</span>
+          <span class="rating_blank" style="font-size:1.2em;">○</span>
+          <span class="rating_blank" style="font-size:1.2em;">○</span>
+          <span class="rating_blank" style="font-size:1.2em;">○</span>
+
+          {%endif%}
+
+
+          {% if partial_rating%}
+           <span class="rating" style="font-size:1.2em;">◐</span>
+          {%endif%}
+
+          {% if blank_rating%}
+            {% for x in blank_rating%}
+            <span class="rating_blank" style="font-size:1.2em;">○</span>
+            {% endfor %}
+          {%endif%}
+<!--
+            <span class="rating" style="font-size:1.2em;">●</span>
+            <span class="rating" style="font-size:1.2em;">●</span>
+            <span class="rating" style="font-size:1.2em;">●</span>
+            <span class="rating" style="font-size:1.2em;">●</span>
+            <span class="rating_blank" style="font-size:1.2em;">○</span>
+-->
+          <!--
+          <span class="rating">◐○○</span>
+          <span class="rating">●○○</span>
+          <span class="rating">●◐○</span>
+          <span class="rating">●●○</span>
+          <span class="rating">●●◐</span>
+          <span class="rating">●●●●</span>
+          -->
+          <!--
           <span class="fa fa-star checked star"></span>
           <span class="fa fa-star checked star"></span>
           <span class="fa fa-star checked star"></span>
           <span class="fa fa-star star"></span>
           <span class="fa fa-star star"></span>
+
+        -->
            <span class = "rating_info smaller_lighter" style="color: #fff; margin-top:5px;">{{overal_rating}}</span>
            <span class = "rating_info smaller_lighter"  style="color: #fff;">({{ total_ratings }} ratings)</span>
            <span class = "rating_info smaller_lighter"  style="color: #fff;font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color: #fff; font-weight: 160; font-size: 1em; letter-spacing:1px;margin-left:20px;">{{note.category}}</span>
