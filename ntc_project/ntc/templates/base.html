@@ -25,6 +25,10 @@
 
         {%endif%}
 
+        {%if checkout%}
+          <link rel="stylesheet" href="{%static 'css/setting_payment.css'%}">
+        {%endif%}
+
         {%if cart%}
         <link rel="stylesheet" href="{%static 'css/ratings.css'%}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">

@@ -117,7 +117,7 @@
        <p style="font-size: 30px;">Total:</p>
        <p style="font-size: 30px;">${{sum_of_price}}</p>
        <form>
-           <button type="button" class="btn btn-primary btn-lg" id="checkout_button">Checkout</button>
+         <a href="{% url 'checkout:checkout'%}"><button type="button" class="btn btn-primary btn-lg" id="checkout_button">Checkout</button></a>
        </form>
     </div>
 </div>

@@ -62,12 +62,15 @@ def payment_payment(request):
             #if it is not empty save information
             credit_card = CreditCards.objects.create(fullName=firstname,nameOnCard=cardname,email=email,address=address,city=city,zip=zip,states=state,creditCardNum=cardnumber,expmonth=expmonth,cvv=cvv,expYear=expyear)
             credit_card.save()
-
+            print(credit_card)
+            print(type(credit_card))
 
             message = 'Credit card has been saved'
+            print('\n\nworked bro')
         else:
             #print out message Try again
             message = 'All information must be filled out, try again'
+            print('\n\n inside try again')
 
         return render(request,'settings/PaymentAccount.html',{'payment':'payment','cards':credit_cards, 'message':message})
     return render(request,'settings/PaymentAccount.html',{'payment':'payment','cards':credit_cards})

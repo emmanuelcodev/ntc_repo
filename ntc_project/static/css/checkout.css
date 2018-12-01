@@ -25,9 +25,10 @@
 }
 
 .method {
+  margin: 20px;
   display: flex;
   flex-direction: column;
-  width: 382px;
+  width: 420px;
   height: 122px;
   padding-top: 20px;
   cursor: pointer;
@@ -38,13 +39,6 @@
   align-items: center;
 }
 
-.card-logos {
-  display: flex;
-  width: 150px;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .radio-input {
   margin-top: 20px;
 }
@@ -52,3 +46,25 @@
 input[type='radio'] {
   display: inline-block;
 }
+
+.btnAdd{
+    position: relative;
+    left: 42%;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    letter-spacing: 1px;
+  }
+
+  .btnConfirm{
+    position: relative;
+    left: 81%;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    letter-spacing: 1px;
+  }

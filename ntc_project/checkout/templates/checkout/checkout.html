@@ -1,0 +1,108 @@
+{%extends 'base.html'%}
+
+
+  {%block content%}
+
+
+    <h2 class="title" style="text-align: center;">Checkout</h2>
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8" style="width:100%">
+
+
+        <div class="card-deck">
+
+
+        {%for creditCard in cards%}
+        <div class="card" style="width:100%">
+          <div class="row">
+            <div class="col-75">
+              <div class="container">
+                <form>
+
+                  <div class="row">
+                    <div class="col-50">
+
+                      </div>
+                    </div>
+
+                    <div class="col-50">
+                      <h3 class="text-center">Credit Card</h3>
+                      <br>
+                      <label for="cname">Name on Card : </label>
+                      <p>{{creditCard.nameOnCard}}</p>
+                      <label for="ccnum">Credit card number :</label>
+                      <p>{{creditCard.creditCardNum}}</p>
+                      <label for="expmonth">Exp Month :</label>
+                      <p>{{creditCard.expmonth}}</p>
+                      <div class="row">
+                        <div class="col-50">
+                          <label for="expyear">Exp Year :</label>
+                          <p>{{creditCard.expYear}}</p>
+                        </div>
+                        <div class="col-50">
+                          <label for="cvv">CVV :</label>
+                          <p>{{creditCard.cvv}}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <label>
+                  </label>
+                </form>
+              </div>
+            </div>
+
+          <div class="" style='margin-left:auto; margin-right:auto;'>
+            <input type="radio" name="gender" value="use"style='margin-left:auto; margin-right:auto;'>Use  <br>
+
+          </div>
+        </div>
+          {%endfor%}
+            </div>
+
+          <a href="{%url 'settings:payment_payment'%}"><button class="btnAdd btn-primary" type="button" name="addCard">Add Card</button></a>
+
+          <a href="{% url 'checkout:make_payment'%}"><button class="btnConfirm btn-success" type="button" name="confirm">Confirm Payment</button></a>
+
+
+        </div>
+
+        <!-- Testing Payment
+
+
+
+
+
+
+
+        <div class="payment-method">
+          <label for="card" class="method card">
+            Info of default card here
+            <div class="radio-input">
+              <input id="card" type="radio" name="payment">
+              Pay (Price) with credit card #1
+            </div>
+          </label>
+          <label for="card2" class="method card">
+              Info of next card here
+            <div class="radio-input">
+              <input id="card2" type="radio" name="payment">
+              Pay (Price) with credit card #2
+            </div>
+          </label>
+        </div>
+
+
+-->
+
+
+
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+</div>
+{%endblock%}

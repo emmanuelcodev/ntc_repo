@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'mynotes.apps.MynotesConfig',
     'settings.apps.SettingsConfig',
+    'checkout.apps.CheckoutConfig',
     #'account.apps.AccountConfig',
 ]
 
