@@ -92,6 +92,13 @@ DATABASES = {
     }
 }
 
+#EMAIL_HOST =
+#EMAIL_PORT = 25
+#EMAIL_HOST_USER = 'notetakingcenter@gmail.com'
+#EMAIL_HOST_PASSWORD settings = 'jump2828'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
