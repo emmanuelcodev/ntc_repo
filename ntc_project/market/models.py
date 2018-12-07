@@ -54,8 +54,11 @@ class Notes(models.Model):
     def get_make_review_url(self):
         return reverse('mynotes:make_review', args=[self.prod_id()])
     def get_complete_star(self):
+
         star_html = generate_star_html(self.ratings)
         c = Context({"my_name": "Adrian"})
+        print('for note id ', self.id, ' and name ', self.note_name, ' with a rating of ', self.ratings)
+        print('star html is ', star_html)
         return Template(star_html).render(c)
 
 

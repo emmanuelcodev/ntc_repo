@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light content" style="padding-bottom:0px;padding-top:2px;">
 
-    <a class="navbar-brand" href="{% url 'market:market_homepage'%}"><img src="{% static 'images/letter-e.png'%}" style = "width:50px; height:50px;"></img><div style="display:inline;">Eagle Notes</div></a><!-- <a href='https://www.freepik.com/free-vector/vintage-vector-wing_3046714.htm'>Designed by Rawpixel.com</a>-->
+    <a class="navbar-brand" href="{% url 'market:market_homepage'%}"><img src="{% static 'images/letter-e.png'%}" style = "width:50px; height:50px;"></img><div style="display:inline;">Note Taking Central</div></a><!-- <a href='https://www.freepik.com/free-vector/vintage-vector-wing_3046714.htm'>Designed by Rawpixel.com</a>-->
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'settings:settings_payment'%}">Account Settings</a>
-                <a class="dropdown-item" href="#">Purchase History</a>
+                <a class="dropdown-item" href="{% url 'settings:payment_payment' %}">Payment Information</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Contact Us</a>
               </div>

@@ -30,9 +30,9 @@
 
 
       <div class="card" style="">
-        <a href="{{note.get_selected_note_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px; max-width: 350px; margin-top: 20px;"></a>
+        <a href="{{note.get_selected_note_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px; max-width: 350px;min-width:320px; margin-top: 20px;"></a>
         <div class="card-body">
-          <h5 class="card-title">{{note.note_name}}</h5>
+          <h5 class="card-title" style="text-transform: capitalize;">{{note.note_name}}</h5>
 
          <!-- <p class="card-text">{{note.note_summary}}</p>-->
          <p class="smaller_lighter">{{note.note_uploader_user}}</p>
@@ -93,9 +93,9 @@
 
 
          <div class="card" style="width: 30%;">
-           <a href="{{note.get_selected_note_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px; max-width: 300px; margin-top: 20px;"></a>
+           <a href="{{note.get_selected_note_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px; max-width: 300px; min-height:320px; margin-top: 20px;"></a>
            <div class="card-body">
-             <h5 class="card-title">{{note.note_name}}</h5>
+             <h5 class="card-title" style="text-transform: capitalize;">{{note.note_name}}</h5>
 
             <!-- <p class="card-text">{{note.note_summary}}</p>-->
             <p class="smaller_lighter">{{note.note_uploader_user}}</p>

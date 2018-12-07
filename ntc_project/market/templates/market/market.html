@@ -44,9 +44,9 @@
 
 
         <div class="card" style="">
-          <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px;"></a>
+          <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px; min-height:320px;"></a>
           <div class="card-body">
-            <h5 class="card-title">{{note.note_name}}</h5>
+            <h5 class="card-title" style="text-transform: capitalize;">{{note.note_name}}</h5>
 
            <!-- <p class="card-text">{{note.note_summary}}</p>-->
            <p class="smaller_lighter">{{note.note_uploader_user}}</p>
@@ -101,9 +101,9 @@
 
 
            <div class="card" style="">
-             <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px;"></a>
+             <a href="{{note.get_preview_url}}"><img class="card-img-top" src="{{note.note_snippet.url}}" alt="Card image cap" style="max-height:320px; min-height:320px;"></a>
              <div class="card-body">
-               <h5 class="card-title">{{note.note_name}}</h5>
+               <h5 class="card-title" style="text-transform: capitalize;">{{note.note_name}}</h5>
 
               <!-- <p class="card-text">{{note.note_summary}}</p>-->
               <p class="smaller_lighter">{{note.note_uploader_user}}</p>
